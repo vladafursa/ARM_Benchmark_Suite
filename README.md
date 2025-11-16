@@ -47,3 +47,7 @@ g++  benchmarks.cpp -o benchmarks
 python3 analyse.py
 ```
 
+**Sorting**
+
+Sorting time increased proportionally with dataset size, matching theoretical time complexity O(n log n). This linear growth means that the implementation of **std::sort** on ARM Apple Silicon processor scales predicatble with the input size. Smaller-sized datasets show low runtime due to cache locality. Larger-sized datasets show notable increased runtime as the working set approaches and exceeds cache capacity.
+
