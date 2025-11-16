@@ -1,0 +1,12 @@
+test,type,value,time_ms
+sort,array_size,100000,8
+sort,array_size,500000,25
+sort,array_size,1000000,52
+memory_stride,stride,1,24
+memory_stride,stride,16,1
+memory_stride,stride,64,1
+memory_stride,stride,256,0
+threads,count,1,67
+threads,count,2,69
+threads,count,4,71
+threads,count,8,119
