@@ -58,19 +58,19 @@ int main() {
        fout << "test,type,value,time_ms\n";
 
        // Sorting benchmark
-       for(size_t size : {100000, 500000, 1000000}) {
+       for(size_t size : {100000, 500000, 1000000, 5000000, 10000000, 50000000}) {
            long long ms = run_sort_test(size);
            fout << "sort,array_size," << size << "," << ms << "\n";
        }
 
        // Memory benchmark
-       for(size_t stride : {1, 16, 64, 256}) {
+       for(size_t stride : {1, 4, 16, 64, 256, 1024}) {
            long long ms = run_memory_stride_test(1e7, stride);
            fout << "memory_stride,stride," << stride << "," << ms << "\n";
        }
 
        // Multithreading benchmark
-       for(int threads : {1, 2, 4, 8}) {
+       for(int threads : {1, 2, 4, 8, 16, 32}) {
            long long ms = run_multithread_test(threads);
            fout << "threads,count," << threads << "," << ms << "\n";
        }
