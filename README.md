@@ -55,10 +55,12 @@ python3 analyse.py
 Sorting time increased proportionally with dataset size, matching theoretical time complexity O(n log n). This linear growth means that the implementation of **std::sort** on ARM Apple Silicon processor scales predicatble with the input size. Smaller-sized datasets show low runtime due to cache locality. Larger-sized datasets show notable increased runtime as the working set approaches and exceeds cache capacity.
 
 **Memory Access (Stride Test)**
+
 There was a slowdon in memory access time with the length increasing and stabilasation from 256 to 1024.
 - With a stride of 1, the program works fast as it reads each element, cache works well. 
 - With the stride of 16 or 64 some cache is wasted and the program needs to go to memory more often, so the program slows down.
 - With the stride of 256+ the step becomes too large to use cache, so the program goes to memory every time. Increase in stride now doesn't change the situation as the cache is not helping anymore.
+
 
 
 
